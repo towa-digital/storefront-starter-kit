@@ -37,8 +37,6 @@ export default function Tile(props) {
 
   if (position === 'left') {
     options.height = 738
-  } else if (position === 'top-right') {
-    options.height = 360
   }
 
   const imageLink = getImageLink(options)
