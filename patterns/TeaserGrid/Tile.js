@@ -29,29 +29,32 @@ export default function Tile(props) {
     content = {},
     link = '',
     className = '',
-    position,
     lazyLoadingDeactivated = false,
   } = props
   const { src = '', alt = '' } = image
 
-  const options = { source: src, format: 'auto' }
+  const optionsSmall = { source: src, format: 'auto', width: 550 }
+  const optionsLarge = { source: src, format: 'auto' }
 
-  if (position === 'left') {
-    options.height = 738
-  }
-
-  const imageLink = getImageLink(options)
+  const imageLinkSmall = getImageLink(optionsSmall)
+  const imageLinkLarge = getImageLink(optionsLarge)
 
   const classes = classNames('teaser-grid__tile', className)
 
   return (
     <ConditionalLink href={link} fallbackElement="div" className={classes}>
       <picture>
-        <img
-          data-src={imageLink}
-          src={lazyLoadingDeactivated ? imageLink : null}
-          alt={alt}
+        <source
+          media="(max-width: 549px)"
+          data-srcset={imageLinkSmall}
+          srcSet={lazyLoadingDeactivated ? imageLinkSmall : null}
         />
+        <source
+          media="(min-width: 550px)"
+          data-srcset={imageLinkLarge}
+          srcSet={lazyLoadingDeactivated ? imageLinkLarge : null}
+        />
+        <img alt={alt} />
       </picture>
 
       <Content {...content} link={link} />
