@@ -23,14 +23,14 @@ export default function ProductTile(props) {
   const imageLink = getImageLink({
     source: images[0],
     height: 228,
-    format: 'f_auto',
+    format: 'auto',
   })
 
   const imageLinkRetina = getImageLink({
     source: images[0],
     height: 228,
     pixelRatio: 2,
-    format: 'f_auto',
+    format: 'auto',
   })
 
   return (

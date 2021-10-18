@@ -30,6 +30,7 @@ export default function Tile(props) {
     link = '',
     className = '',
     position,
+    lazyLoadingDeactivated = false,
   } = props
   const { src = '', alt = '' } = image
 
@@ -46,7 +47,11 @@ export default function Tile(props) {
   return (
     <ConditionalLink href={link} fallbackElement="div" className={classes}>
       <picture>
-        <img src={imageLink} alt={alt} />
+        <img
+          data-src={imageLink}
+          src={lazyLoadingDeactivated ? imageLink : null}
+          alt={alt}
+        />
       </picture>
 
       <Content {...content} link={link} />
