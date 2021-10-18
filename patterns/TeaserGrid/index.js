@@ -14,9 +14,13 @@ function TeaserGrid(props) {
 
   return (
     <section ref={sectionRef} className={classes}>
-      <Tile {...topRight} className="teaser-grid__tile--top-right" />
+      <Tile
+        {...topRight}
+        position="top-right"
+        className="teaser-grid__tile--top-right"
+      />
 
-      <Tile {...left} className="teaser-grid__tile--left" />
+      <Tile {...left} position="left" className="teaser-grid__tile--left" />
 
       <Tile {...bottomRight} className="teaser-grid__tile--bottom-right" />
 

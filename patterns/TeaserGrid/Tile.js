@@ -24,10 +24,24 @@ function Content(props) {
 
 export default function Tile(props) {
   const { getImageLink } = useConfiguration()
-  const { image = {}, content = {}, link = '', className = '' } = props
+  const {
+    image = {},
+    content = {},
+    link = '',
+    className = '',
+    position,
+  } = props
   const { src = '', alt = '' } = image
 
-  const imageLink = getImageLink({ source: src, format: 'auto' })
+  const options = { source: src, format: 'auto' }
+
+  if (position === 'left') {
+    options.height = 738
+  } else if (position === 'top-right') {
+    options.height = 360
+  }
+
+  const imageLink = getImageLink(options)
 
   const classes = classNames('teaser-grid__tile', className)
 
