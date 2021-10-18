@@ -46,7 +46,7 @@ export default function Tile(props) {
   return (
     <ConditionalLink href={link} fallbackElement="div" className={classes}>
       <picture>
-        <img data-src={imageLink} alt={alt} />
+        <img src={imageLink} alt={alt} />
       </picture>
 
       <Content {...content} link={link} />

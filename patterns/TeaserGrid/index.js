@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import classNames from 'classnames'
-import { useLazyLoading } from '../../utils'
+//import { useLazyLoading } from '../../utils'
 import Tile from './Tile'
 
 function TeaserGrid(props) {
@@ -10,7 +10,7 @@ function TeaserGrid(props) {
 
   const classes = classNames('teaser-grid', `teaser-grid--${variant}`)
 
-  useLazyLoading({ ref: sectionRef, dependency: tiles })
+  //useLazyLoading({ ref: sectionRef, dependency: tiles })
 
   return (
     <section ref={sectionRef} className={classes}>
