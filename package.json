@@ -33,7 +33,7 @@
     "express": "^4.17.1",
     "iframe-resizer": "^4.3.1",
     "isomorphic-unfetch": "^3.1.0",
-    "next": "^10.0.5",
+    "next": "^11.1.2",
     "nookies": "^2.5.2",
     "qs": "^6.10.1",
     "rc-slider": "^9.7.2",
@@ -72,8 +72,5 @@
       "eslint --fix",
       "prettier --write"
     ]
-  },
-  "engines": {
-    "node": "13.9.0"
   }
 }
