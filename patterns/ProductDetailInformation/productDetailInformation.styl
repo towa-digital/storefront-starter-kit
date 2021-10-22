@@ -192,9 +192,13 @@ $breakpoint-huge = 1200px
   display flex
   justify-content space-between
   margin-top 1.2rem
+  flex-wrap wrap
 
   @media (min-width $breakpoint-tiny)
     justify-content normal
+
+  @media (min-width $breakpoint-small)
+    flex-wrap unset
 
   @media (min-width $breakpoint-medium)
     flex 0 0 auto
@@ -237,4 +241,14 @@ $breakpoint-huge = 1200px
       column-gap 2rem
 
 .product-detail-information__add-bundle
-  margin-left 1rem
+  flex-grow 2
+
+  @media (min-width $breakpoint-small)
+    flex-grow unset
+    margin-left 1rem
+
+.product-detail-information__add-cart
+  flex-grow 2
+
+  @media (min-width $breakpoint-tiny)
+    flex-grow unset
