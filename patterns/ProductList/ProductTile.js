@@ -38,7 +38,7 @@ export default function ProductTile(props) {
       <Link href={url}>
         <picture className="product-item__image">
           <img
-            src={imageLink}
+            //src={imageLink}
             data-srcset={`${imageLink} 1x, ${imageLinkRetina} 2x`}
             alt={title}
             height="228"
