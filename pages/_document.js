@@ -13,28 +13,6 @@ export default class MyDocument extends Document {
         <Head>
           <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
 
-          <link
-            rel="preload"
-            href="/assets/fonts/core/FiraSans-Regular.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin
-          />
-          <link
-            rel="preload"
-            href="/assets/fonts/core/FiraSans-Medium.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin
-          />
-          <link
-            rel="preload"
-            href="/assets/fonts/core/FiraSans-SemiBold.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin
-          />
-
           {/*
           <link rel="dns-prefetch" href="https://cdn.polyfill.io" />
           <link rel="preconnect" href="https://cdn.polyfill.io" />
