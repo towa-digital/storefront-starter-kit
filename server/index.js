@@ -85,6 +85,13 @@ app
       }
     })
 
+    server.get('/p/*', (req, res) => {
+      app.render(req, res, '/frontend/detail', {
+        seoUrl: `/p/${req.params[0]}`,
+        ...req.query,
+      })
+    })
+
     server.get(/^(.*)$/, (req, res) => {
       app.render(req, res, '/frontend/entry', {
         seoUrl: req.params[0],
