@@ -64,6 +64,8 @@ $breakpoint-huge = 1200px
 .product-detail-information__image
   margin 0 -1.5rem 1.2rem // negative margin to accomodate for the 1.5rem padding of the container on the left/right
   position relative
+  height 50vh
+  width 100%
 
   @media (min-width $breakpoint-small)
     // max-width 47rem
@@ -87,6 +89,20 @@ $breakpoint-huge = 1200px
 
     @media (min-width $breakpoint-small)
       // max-width 100%
+
+.product-detail-information__magnifier--tap
+  height 100%
+
+  > div
+    height 100%
+    display flex
+
+  > div > img
+    max-height 100%
+    max-width 100%
+    margin auto
+    width auto !important
+
 
 .product-detail-information__image-button
   position absolute

@@ -36,7 +36,7 @@ export default function ProductActions({ bundles, addToBundle }) {
         {t('PRODUCT_DETAIL_ADD_TO_CART')}
       </Button>
 
-      {bundles && bundles.length && (
+      {bundles && bundles.length ? (
         <Button
           variant="primary"
           className="product-detail-information__add-bundle"
@@ -44,7 +44,7 @@ export default function ProductActions({ bundles, addToBundle }) {
         >
           {t('PRODUCT_DETAIL_ADD_TO_BUNDLE')}
         </Button>
-      )}
+      ) : null}
     </div>
   )
 }

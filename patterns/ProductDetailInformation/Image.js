@@ -15,17 +15,24 @@ export default function Image(props) {
 
   const imageLink = getImageLink({
     source: images[0],
-    height: 400,
     format: 'auto',
+    height: 600,
+  })
+
+  const imageLinkLarge = getImageLink({
+    source: images[0],
+    format: 'auto',
+    height: 2000,
   })
 
   return (
     <div className="product-detail-information__image">
       {magnifier_type === 'tap' && (
         <Magnifier
+          className="product-detail-information__magnifier--tap"
           imageSrc={imageLink}
           imageAlt={title}
-          largeImageSrc={imageLink}
+          largeImageSrc={imageLinkLarge}
           mouseActivation={MOUSE_ACTIVATION.CLICK} // Optional
           touchActivation={TOUCH_ACTIVATION.TAP} // Optional
         />
