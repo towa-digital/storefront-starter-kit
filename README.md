@@ -2,6 +2,13 @@
 
 ## Getting Started
 
+### Optimized for Core Web Vitals
+Changes between branch `stable` and branch `core-web-vitals-optimized`:
+ 
+- Seperated next pages for category lists (`/c/*`), detail pages (`/p/*`) and landing pages (`all other routes`). This reduces the initial js-bundle size because only required components are chipped at the initial page load.
+- ContentElements have been removed from the detail pages. This reduces the bundle size for the detail page.
+- ImageMagnifier removed from detail page, show performance optimized image instead
+
 ### Prerequisites
 
 * [Node.js](https://nodejs.org/) v13.9.0

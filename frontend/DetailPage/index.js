@@ -5,11 +5,7 @@ import {
   useTranslation,
   redirectToBundle,
 } from '../../utils'
-import {
-  //ContentElements,
-  ProductDetailInformation,
-  ProductPlacement,
-} from '../../patterns'
+import { ProductDetailInformation, ProductPlacement } from '../../patterns'
 
 function DetailPage() {
   const { t, language } = useTranslation()
@@ -50,21 +46,11 @@ function DetailPage() {
 
   return (
     <main>
-      {/*
-      <ContentElements
-        elements={pageData.data.self.promotions?.top?.elements}
-      />*/}
-
       <ProductDetailInformation
         key={productDetailProps.id}
         {...productDetailProps}
       />
       <ProductPlacement {...productPlacementProps} />
-      {/*
-      <ContentElements
-        elements={pageData.data.self.promotions?.bottom?.elements}
-      />
-      */}
     </main>
   )
 }
