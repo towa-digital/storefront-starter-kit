@@ -54,6 +54,7 @@ function DetailPage() {
       <ContentElements
         elements={pageData.data.self.promotions?.top?.elements}
       />*/}
+
       <ProductDetailInformation
         key={productDetailProps.id}
         {...productDetailProps}
