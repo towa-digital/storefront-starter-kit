@@ -3,7 +3,7 @@
 ## Getting Started
 
 ### Optimized for Core Web Vitals
-Changes between branch `stable` and branch `core-web-vitals-optimized`:
+Changes between branch `stable` and branch `web-vitals-optimized`:
  
 - Seperated next pages for category lists (`/c/*`), detail pages (`/p/*`) and landing pages (`all other routes`). This reduces the initial js-bundle size because only required components are chipped at the initial page load.
 - ContentElements have been removed from the detail pages. This reduces the bundle size for the detail page.
