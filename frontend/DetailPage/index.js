@@ -6,7 +6,7 @@ import {
   redirectToBundle,
 } from '../../utils'
 import {
-  ContentElements,
+  //ContentElements,
   ProductDetailInformation,
   ProductPlacement,
 } from '../../patterns'
@@ -50,17 +50,20 @@ function DetailPage() {
 
   return (
     <main>
+      {/*
       <ContentElements
         elements={pageData.data.self.promotions?.top?.elements}
-      />
+      />*/}
       <ProductDetailInformation
         key={productDetailProps.id}
         {...productDetailProps}
       />
       <ProductPlacement {...productPlacementProps} />
+      {/*
       <ContentElements
         elements={pageData.data.self.promotions?.bottom?.elements}
       />
+      */}
     </main>
   )
 }
