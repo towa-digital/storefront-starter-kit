@@ -39,3 +39,5 @@ export { default as ContactForm } from './core/ContactForm'
 export { default as NoComponent } from './core/NoComponent'
 
 /* Add project specific patterns here */
+export { default as DiscoveryImageSlider } from './DiscoveryImageSlider'
+export { default as DiscoveryImageSliderCard } from './DiscoveryImageSliderCard'
