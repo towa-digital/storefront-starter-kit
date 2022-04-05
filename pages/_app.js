@@ -2,6 +2,7 @@ import App from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
 import { SVGSprite } from '../patterns'
+import '../styles/globals.css'
 
 // The next line is excluded from linting since the file gets generated at runtime.
 /* eslint-disable-next-line import/no-unresolved */
