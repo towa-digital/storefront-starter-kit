@@ -50,37 +50,9 @@ export default function VariantPreview({ componentName, variant }) {
 
       <div className="pali__component-wrapper">
         <ReactIframeResizer
-          src={variantLinkTarget}
+          src={`/pali/variants/${componentName}_${variant.name}`}
           iframeResizerOptions={{ checkOrigin: false }}
         />
-        {/* <ReactIframeResizer iframeResizerOptions={{ checkOrigin: false }}>
-          <ConfigurationProvider>
-            <TranslationProvider language={currentLanguage}>
-              <BaseLayout>
-                <style
-                  dangerouslySetInnerHTML={{
-                    __html: `
-                    #iframe-root {
-                      padding: 10px 0;
-                      background: #fff;
-                      border-radius: 8px;
-                    }
-                  `,
-                  }}
-                ></style>
-
-                <link
-                  href="/assets/styles/main.css"
-                  rel="stylesheet"
-                  type="text/css"
-                />
-                <SVGSprite />
-
-                <Component {...variant.props} />
-              </BaseLayout>
-            </TranslationProvider>
-          </ConfigurationProvider>
-        </ReactIframeResizer> */}
       </div>
     </section>
   )
