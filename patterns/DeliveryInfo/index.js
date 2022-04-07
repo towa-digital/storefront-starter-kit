@@ -6,7 +6,7 @@ const DeliveryInfoTable = ({ countries }) => {
   const sanitizePrice = (price = null) => price?.toFixed(2).replace('.', ',')
 
   return (
-    <table className="delivery-info-table">
+    <table className="delivery-info-table  delivery-info-table--bordered">
       <thead className="delivery-info-table__header">
         <tr>
           <th>{t('DELIVERY_INFO_COUNTRIES')}</th>
