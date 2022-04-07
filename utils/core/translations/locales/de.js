@@ -87,11 +87,10 @@ export default {
   DELIVERY_INFO_COUNTRIES: 'Land',
   DELIVERY_INFO_PACKAGE_UP_TO_40: 'Paket bis 40 €',
   DELIVERY_INFO_PACKAGE_FROM_40: 'Paket über 40 €',
-  DELIVERY_INFO_BULKY_GOODS:
-    'Sperrgut (z.B. Ski, SUPs, Boards, Bobs, Schlitten...)',
+  DELIVERY_INFO_BULKY_GOODS: 'Sperrgut',
   DELIVERY_INFO_BIKES: 'Fahrrad',
   DELIVERY_INFO_EXPRESS_PACKAGE: 'Express Paket',
-  DELIVERY_INFO_EXPRESS_BULKY_GOODS: 'Express Sperrgut (zB Ski)',
+  DELIVERY_INFO_EXPRESS_BULKY_GOODS: 'Express Sperrgut',
   DELIVERY_INFO_EXPRESS_BIKES: 'Express Fahrrad',
   COUNTRY_DE: 'Deutschland',
   COUNTRY_AT: 'Österreich',
