@@ -1,6 +1,24 @@
 import { useTranslation } from '../../utils'
+import React, { useEffect, useState } from 'react'
+import DeliveryInfoMobile from './DeliveryInfoMobile'
 
 const DeliveryInfoTable = ({ countries }) => {
+  const [width, setWidth] = useState(0)
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth)
+  }
+
+  useEffect(() => {
+    setWidth(window.innerWidth)
+    window.addEventListener('resize', handleWindowSizeChange)
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange)
+    }
+  }, [])
+
+  const isMobile = width <= 768
+
   const { language } = useTranslation()
   const headings = {
     en: {
@@ -25,46 +43,52 @@ const DeliveryInfoTable = ({ countries }) => {
     },
   }
 
-  return (
-    <table className="delivery-info-table">
-      <thead className="delivery-info-table__header">
-        <tr>
-          <th>{headings[language].countries}</th>
-          <th>{headings[language].packageUpTo40}</th>
-          <th>{headings[language].packageFrom40}</th>
-          <th>{headings[language].bulkyGoods}</th>
-          <th>{headings[language].bikes}</th>
-          <th>{headings[language].expressPackage}</th>
-          <th>{headings[language].expressBulkyGoods}</th>
-          <th>{headings[language].expressBikes}</th>
-        </tr>
-      </thead>
-      <tbody className="delivery-info-table__body">
-        {countries.map((country) => (
-          <tr key={country.name[language]}>
-            <td className="country">{country.name[language]}</td>
-            <td className="price">
-              {country.shipping.packageUpTo40?.toFixed(2)}
-            </td>
-            <td className="price">
-              {country.shipping.packageFrom40?.toFixed(2)}
-            </td>
-            <td className="price">{country.shipping.bulkyGoods?.toFixed(2)}</td>
-            <td className="price">{country.shipping.bikes?.toFixed(2)}</td>
-            <td className="price">
-              {country.shipping.expressPackage?.toFixed(2)}
-            </td>
-            <td className="price">
-              {country.shipping.expressBulkyGoods?.toFixed(2)}
-            </td>
-            <td className="price">
-              {country.shipping.expressBikes?.toFixed(2)}
-            </td>
+  if (isMobile) {
+    return <DeliveryInfoMobile countries={countries}></DeliveryInfoMobile>
+  } else {
+    return (
+      <table className="delivery-info-table">
+        <thead className="delivery-info-table__header">
+          <tr>
+            <th>{headings[language].countries}</th>
+            <th>{headings[language].packageUpTo40}</th>
+            <th>{headings[language].packageFrom40}</th>
+            <th>{headings[language].bulkyGoods}</th>
+            <th>{headings[language].bikes}</th>
+            <th>{headings[language].expressPackage}</th>
+            <th>{headings[language].expressBulkyGoods}</th>
+            <th>{headings[language].expressBikes}</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  )
+        </thead>
+        <tbody className="delivery-info-table__body">
+          {countries.map((country) => (
+            <tr key={country.name[language]}>
+              <td className="country">{country.name[language]}</td>
+              <td className="price">
+                {country.shipping.packageUpTo40?.toFixed(2)}
+              </td>
+              <td className="price">
+                {country.shipping.packageFrom40?.toFixed(2)}
+              </td>
+              <td className="price">
+                {country.shipping.bulkyGoods?.toFixed(2)}
+              </td>
+              <td className="price">{country.shipping.bikes?.toFixed(2)}</td>
+              <td className="price">
+                {country.shipping.expressPackage?.toFixed(2)}
+              </td>
+              <td className="price">
+                {country.shipping.expressBulkyGoods?.toFixed(2)}
+              </td>
+              <td className="price">
+                {country.shipping.expressBikes?.toFixed(2)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    )
+  }
 }
 
 function DeliveryInfo({ countries }) {

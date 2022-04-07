@@ -3,5 +3,16 @@
 
 .delivery-info-table td:empty:after
   content "-"
+
 .delivery-info-table td.price:not(:empty):before
   content "€ "
+
+.delivery-info-mobile-card
+  display flex
+  flex-direction: column
+  justify-content: space-between
+
+.delivery-info-mobile-card-entry
+  display flex
+  span
+    width 50%
