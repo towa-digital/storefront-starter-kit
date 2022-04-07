@@ -1,64 +1,60 @@
 import { useTranslation } from '../../utils'
 
 const DeliveryInfoTable = ({ countries }) => {
-  const { language } = useTranslation()
-  const headings = {
-    en: {
-      countries: 'Country',
-      packageUpTo40: 'Package up to 40 €',
-      packageFrom40: 'Package from 40 €',
-      bulkyGoods: 'Bulky Goods (e.g. skis, boards, sleds, SUPs)',
-      bikes: 'Bikes',
-      expressPackage: 'Express Package',
-      expressBulkyGoods: 'Express Bulky Goods (e.g. Skis)',
-      expressBikes: 'Express Bikes',
-    },
-    de: {
-      countries: 'Land',
-      packageUpTo40: 'Paket bis 40 €',
-      packageFrom40: 'Paket über 40 €',
-      bulkyGoods: 'Sperrgut (z.B. Ski, SUPs, Boards, Bobs, Schlitten...)',
-      bikes: 'Fahrrad',
-      expressPackage: 'Express Paket',
-      expressBulkyGoods: 'Express Sperrgut (z.B. Ski)',
-      expressBikes: 'Express Fahrrad',
-    },
-  }
+  const { t } = useTranslation()
+
+  const sanitizePrice = (price = null) => price?.toFixed(2).replace('.', ',')
 
   return (
     <table className="delivery-info-table">
       <thead className="delivery-info-table__header">
         <tr>
-          <th>{headings[language].countries}</th>
-          <th>{headings[language].packageUpTo40}</th>
-          <th>{headings[language].packageFrom40}</th>
-          <th>{headings[language].bulkyGoods}</th>
-          <th>{headings[language].bikes}</th>
-          <th>{headings[language].expressPackage}</th>
-          <th>{headings[language].expressBulkyGoods}</th>
-          <th>{headings[language].expressBikes}</th>
+          <th>{t('DELIVERY_INFO_COUNTRIES')}</th>
+          <th>{t('DELIVERY_INFO_PACKAGE_UP_TO_40')}</th>
+          <th>{t('DELIVERY_INFO_PACKAGE_FROM_40')}</th>
+          <th>{t('DELIVERY_INFO_BULKY_GOODS')}</th>
+          <th>{t('DELIVERY_INFO_BIKES')}</th>
+          <th>{t('DELIVERY_INFO_EXPRESS_PACKAGE')}</th>
+          <th>{t('DELIVERY_INFO_EXPRESS_BULKY_GOODS')}</th>
+          <th>{t('DELIVERY_INFO_EXPRESS_BIKES')}</th>
         </tr>
       </thead>
       <tbody className="delivery-info-table__body">
         {countries.map((country) => (
-          <tr key={country.name[language]}>
-            <td className="country">{country.name[language]}</td>
-            <td className="price">
-              {country.shipping.packageUpTo40?.toFixed(2)}
+          <tr key={country.code}>
+            <td className="delivery-info-table__country">
+              {t(`COUNTRY_${country.code}`)}
+              {!country.tax && (
+                <span className="delivery-info-table__tax-free">
+                  {t('DELIVERY_INFO_TAX_FREE')}
+                </span>
+              )}
+              {country.nif && (
+                <span className="delivery-info-table__nif-required">
+                  {t('DELIVERY_INFO_NIF_REQUIRED')}
+                </span>
+              )}
             </td>
-            <td className="price">
-              {country.shipping.packageFrom40?.toFixed(2)}
+            <td className="delivery-info-table__price">
+              {sanitizePrice(country.shipping.packageUpTo40)}
             </td>
-            <td className="price">{country.shipping.bulkyGoods?.toFixed(2)}</td>
-            <td className="price">{country.shipping.bikes?.toFixed(2)}</td>
-            <td className="price">
-              {country.shipping.expressPackage?.toFixed(2)}
+            <td className="delivery-info-table__price">
+              {sanitizePrice(country.shipping.packageFrom40)}
             </td>
-            <td className="price">
-              {country.shipping.expressBulkyGoods?.toFixed(2)}
+            <td className="delivery-info-table__price">
+              {sanitizePrice(country.shipping.bulkyGoods)}
             </td>
-            <td className="price">
-              {country.shipping.expressBikes?.toFixed(2)}
+            <td className="delivery-info-table__price">
+              {sanitizePrice(country.shipping.bikes)}
+            </td>
+            <td className="delivery-info-table__price">
+              {sanitizePrice(country.shipping.expressPackage)}
+            </td>
+            <td className="delivery-info-table__price">
+              {sanitizePrice(country.shipping.expressBulkyGoods)}
+            </td>
+            <td className="delivery-info-table__price">
+              {sanitizePrice(country.shipping.expressBikes)}
             </td>
           </tr>
         ))}

@@ -4,10 +4,7 @@ export default [
     props: {
       countries: [
         {
-          name: {
-            en: 'Germany',
-            de: 'Deutschland',
-          },
+          code: 'DE',
           shipping: {
             packageUpTo40: 5,
             packageFrom40: 0,
@@ -21,10 +18,7 @@ export default [
           nif: false,
         },
         {
-          name: {
-            en: 'Austria',
-            de: 'Österreich',
-          },
+          code: 'AT',
           shipping: {
             packageUpTo40: 10,
             packageFrom40: 0,
@@ -38,10 +32,7 @@ export default [
           nif: false,
         },
         {
-          name: {
-            en: 'Australia',
-            de: 'Australien',
-          },
+          code: 'AU',
           shipping: {
             packageUpTo40: null,
             packageFrom40: null,
@@ -55,10 +46,7 @@ export default [
           nif: false,
         },
         {
-          name: {
-            en: 'Chile',
-            de: 'Chile',
-          },
+          code: 'CL',
           shipping: {
             packageUpTo40: null,
             packageFrom40: null,
@@ -72,10 +60,7 @@ export default [
           nif: true,
         },
         {
-          name: {
-            en: 'Switzerland',
-            de: 'Schweiz',
-          },
+          code: 'CH',
           shipping: {
             packageUpTo40: 15,
             packageFrom40: 15,
@@ -85,7 +70,7 @@ export default [
             expressBulkyGoods: 50,
             expressBikes: 200,
           },
-          tax: true,
+          tax: false,
           nif: false,
         },
       ],
