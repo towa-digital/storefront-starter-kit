@@ -1,11 +1,54 @@
 .delivery-info
   display block
 
-.delivery-info-table td:empty:after
+.delivery-info-table
+  width 100%
+  margin-bottom 20px
+.delivery-info-table--bordered,
+.delivery-info-table--bordered td,
+.delivery-info-table--bordered th
+  border: 1px solid #ddd
+.delivery-info-table--bordered th
+  border-bottom-width: 2px
+
+.delivery-info-table__header th
+  font-weight bold
+  text-align left
+  vertical-align bottom
+
+.delivery-info-table__country
+  text-align left
+  width: 20%
+.delivery-info-table__price
+  text-align left
+  width 10%
+
+.delivery-info-table__price:empty:after
   content "-"
 
-.delivery-info-table td.price:not(:empty):before
+.delivery-info-table__price:not(:empty):before
   content "€ "
+
+.delivery-info-table__description
+  font-size smaller
+  color #ddd
+
+.delivery-info-table th,
+.delivery-info-table td
+  padding 0.5rem
+
+.delivery-info-table__body tr:nth-child(odd) td
+  background-color #f9f9f9
+
+.delivery-info-table__tax-free
+  display block
+  font-size smaller
+  color #ee7f01
+
+.delivery-info-table__nif-required
+  display block
+  font-size smaller
+  color red
 
 .delivery-info-mobile-card
   display flex
