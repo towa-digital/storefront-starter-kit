@@ -44,9 +44,6 @@ import ErrorPage from '../patterns/core/ErrorPage'
 import DiscoveryImageSlider, {
   discoveryImageSliderVariants,
 } from '../patterns/DiscoveryImageSlider'
-import DiscoveryImageSliderCard, {
-  discoveryImageSliderCardVariants,
-} from '../patterns/DiscoveryImageSliderCard'
 /* CLI MARKER - PATTER IMPORT - DO NOT REMOVE */
 
 export default [
@@ -175,12 +172,6 @@ export default [
     name: 'Discovery Image Slider',
     component: DiscoveryImageSlider,
     variants: discoveryImageSliderVariants,
-  },
-  {
-    type: 'placeable',
-    name: 'Discovery Image Slider Card',
-    component: DiscoveryImageSliderCard,
-    variants: discoveryImageSliderCardVariants,
   },
   /* CLI MARKER - PATTERN CONFIG - DO NOT REMOVE */
   {

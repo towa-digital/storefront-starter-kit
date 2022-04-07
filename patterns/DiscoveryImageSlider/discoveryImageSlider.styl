@@ -1,39 +1,83 @@
 .discovery-image-slider
-  display block
-  overflow: hidden
 
-.discovery-image-slider-container
-  display flex
-  flex-direction row
+  .discovery-image-slider-container
+    display grid
+    grid-template-columns auto calc(100% - 500px)
+    width 100%
 
-.discovery-image-heading
-  color #0D1E34
-  font-family "FiraSans"
-  font-size 25px
-  font-weight 600
-  letter-spacing 0
-  line-height 30px
-  margin 8px 0px 11px 0px
+    @media (max-width $breakpoint-medium)
+      display grid
+      grid-template-columns 100%
 
-.discovery-image-slider-wrapper
-  width 100%
+  .discovery-image-slider-wrapper
+    &:before
+      content ''
+      height 100%
+      width 48px
+      position absolute
+      z-index 1
+      background linear-gradient(90deg, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%)
 
-.discovery-slide
-  width 300px!important
+    &:after
+      content ''
+      height 100%
+      width 48px
+      position absolute
+      right 0
+      top 0
+      background linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,1) 70%)
 
-.discovery-image-spot
-  background-color: gray
-  padding: 5px
-  margin: 2px
+  .discovery-image-slider-heading
+    color #0D1E34
+    font-family "FiraSans"
+    font-size 25px
+    font-weight 600
+    line-height 30px
+    margin 8px 0px 11px 0px
 
-.product-item
-  position relative
-  width 180px
-  margin 0 auto
-  padding 0
-  border-top 0
+  .discovery-image-slider-image-spot-container
+    z-index 2
 
-.discovery-image {
-  min-width 300px
-  min-height 300px
-}
+  .discovery-image-slider-spot
+    color #101C2D
+    text-align center
+    border 2px solid #ffffff
+    border-radius 50%
+    box-shadow 0 2px 4px -2px rgba(48,59,71,0.35)
+    position relative
+    height 20px
+    width 20px
+    padding 1px
+    background-color #ECEFF3
+    display inline-block
+    z-index 3
+    cursor pointer
+
+    &__active
+      color #FFFFFF
+      background-color #303B47
+      background linear-gradient(180deg, #4F5967 0%, #303B47 100%)
+
+  .discovery-image-slider-index
+    top 25px
+    left 10px
+    position relative
+
+// product tile custom styling
+  .product-item
+    position relative
+    margin 0 auto
+    padding 0
+    border-top 0
+
+  .product-item__image
+    border 1px solid #dadada
+    padding 20px
+
+// slick slider styling
+  .slick-slide
+    padding 10px
+
+  .slick-current
+    .product-item__image
+      border 1px solid #000000

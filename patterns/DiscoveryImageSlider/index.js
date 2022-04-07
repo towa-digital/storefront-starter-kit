@@ -1,61 +1,116 @@
 import Slider from 'react-slick'
 import { useState, useRef } from 'react'
-import DiscoveryImageSliderCard from '../DiscoveryImageSliderCard'
+import classNames from 'classnames'
+import ProductTile from '../core/ProductList/ProductTile'
 
 function DiscoveryImageSlider(props) {
   const sectionRef = useRef(null)
   const sliderRef = useRef(null)
-
   const {
     image = {},
     discoveryItems = [],
     heading = 'Gin Tonic Tipp des Monats',
   } = props
 
-  const [setSlideIndex] = useState(0)
+  const [slideIndex, setSlideIndex] = useState(0)
 
   const settings = {
     className: 'center',
-    centerMode: true,
-    centerPadding: '200px',
     focusOnSelect: true,
-    slidesToShow: 1,
-
+    centerMode: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlideIndex: 0,
     dots: false,
     arrows: false,
     infinite: true,
     speed: 500,
     beforeChange: (current, next) => setSlideIndex(next),
+    responsive: [
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1240,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   }
 
   return (
     <section ref={sectionRef} className="discovery-image-slider">
-      <h2 className="discovery-image-heading">{heading}</h2>
+      <h2 className="discovery-image-slider-heading">{heading}</h2>
       <div className="discovery-image-slider-container">
-        <div>
+        <div className="discovery-image-slider-image-spot-container">
           {discoveryItems.map((discoveryItem, i) => {
+            const spotClasses = classNames('discovery-image-slider-spot', {
+              ['discovery-image-slider-spot__active']: slideIndex === i,
+            })
             return (
               <span
-                className="discovery-image-spot"
-                key={`discovery-slide-${i}`}
-                onClick={() => sliderRef.slick('slickGoTo', i)}
+                className={spotClasses}
+                key={`discovery-image-slider-slide-${i}`}
+                style={{
+                  top: `${discoveryItem.top}%`,
+                  left: `${discoveryItem.left}%`,
+                }}
+                onClick={() => sliderRef.current.slickGoTo(i)}
               >
                 {i + 1}
               </span>
             )
           })}
-
-          <img className="discovery-image" src={image}></img>
+          <img
+            className="discovery-image-slider-spot-image"
+            src={image}
+            alt={'Discovery Image'}
+          ></img>
         </div>
-        <div className="products discovery-image-slider-wrapper">
+        <div className="discovery-image-slider-wrapper">
           <Slider ref={sliderRef} {...settings}>
             {discoveryItems.map((discoveryItem, i) => {
+              const spotClasses = classNames(
+                'discovery-image-slider-spot discovery-image-slider-index',
+                {
+                  ['discovery-image-slider-spot__active']: slideIndex === i,
+                }
+              )
               return (
-                <DiscoveryImageSliderCard
-                  className="product-item"
-                  key={`discovery-slide-${i}`}
-                  product={discoveryItem.product}
-                />
+                <div key={`spot-${i}`}>
+                  <span className={spotClasses}>{i + 1}</span>
+                  <ProductTile
+                    {...discoveryItem.product}
+                    isLazyLoad={false}
+                  ></ProductTile>
+                </div>
               )
             })}
           </Slider>

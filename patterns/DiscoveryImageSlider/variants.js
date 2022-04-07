@@ -4,48 +4,85 @@ const heading = 'Gin Tonic Tipp des Monats'
 const discoveryItems = [
   {
     product: {
-      id: '1',
-      title: 'Bombay Gin',
-      image:
-        'https://www.weisshaus.at/media/image/71/b6/14/t-1783BE68D20F942EA02D0175EA63CEB4_600x600.jpg',
-      description: 'Lorem ipsum dolor sit amet, nonumy eirmod tempor ut labore',
-      brand: 'Bombay',
-      price: 21,
+      ean: '8437011284105',
+      manufacturer_title: 'Mombasa',
+      datatype: 'makaira-productgroup',
+      price: 39.95,
+      manufacturerid: null,
+      picture_url_main:
+        'https://www.ludwig-von-kapff.de/media/catalog/product/1/4/141433-mombasa-club-colonels-reserve-170x340.png',
+      id: '141433',
+      title:
+        "Mombasa Club Gin Colonel's Reserve London Dry Gin - 43,5% vol - in Geschenkverpackung",
+      url: '/mombasa-club-colonel-s-reserve-london-dry-gin.html',
+      longdesc:
+        'Der Mombasa Club Colonel\u2019s Reserve jetzt in hochwertiger Geschenkverpackung! Diese limitierte Sonderedition wird Sie mit einem reichen Aromenspektrum, das die ganze Bandbreite der exotischen Ingredenzien widerspiegelt, verf\u00fchren. Dieses verleiht diesem traumhaften Gin ein intensives und \u00fcppiges Bukett und pr\u00e4sentieren sich mit zart-s\u00fc\u00dflichen Nuancen und feinen Zitrus- und Anisnoten auf der Zunge.\nDie hocherfahrenen englischen Brennmeister verwenden nur hochwertigste Zutaten wie Kriechwacholder, Koriander, K\u00fcmmel oder Nelken und destillieren ihn besonders hutsam mit der "Small Batch" Destillation.\u00a0Gut ausbalanciert und ausgesprochen mild. Eine Offenbarung f\u00fcr Gin-Liebhaber und ein Genuss f\u00fcr alle, die das Besondere lieben.',
+      shortdesc:
+        'Der Mombasa Club Colonel\u2019s Reserve jetzt in hochwertiger Geschenkverpackung!',
     },
-    postiton: {
-      left: 10,
-      top: 80,
-    },
+    left: 10,
+    top: 30,
   },
   {
     product: {
-      id: '2',
-      title: 'Hendricks Neptunia Gin',
-      image:
-        'https://cdn.shopify.com/s/files/1/1408/2732/products/tastillery_hendricks_neptunia_1024x1024@2x.jpg?v=1646134109',
-      description: 'Lorem ipsum dolor sit amet, nonumy eirmod tempor ut labore',
-      brand: 'Hendricks',
-      price: 30,
+      ean: '4400066900232',
+      manufacturer_title: 'Rotkäppchen',
+      datatype: 'makaira-productgroup',
+      price: 5.95,
+      manufacturerid: null,
+      picture_url_main:
+        'https://www.ludwig-von-kapff.de/media/catalog/product/3/0/300230-rotkaeppchen-sekt-flg-chard-extra-tr.png',
+      id: '300230',
+      title:
+        'Rotk\u00e4ppchen Sekt Flascheng\u00e4rung Chardonnay Extra Trocken',
+      url: '/rotkaeppchen-sekt-flaschengaerung-chardonnay-300230.html',
+      longdesc:
+        'Samtig und vollmundig im Geschmack pr\u00e4sentiert sich der rebsortenreine Chardonnay Sekt nach der traditionellen Flascheng\u00e4rung und einer Reifezeit von \u00fcber neun Monaten.\nGoldgelb in der Farbe \u00fcberzeugt er mit einem zart-fruchtigen Charakter schon nach dem ersten Schluck. Die Nase wird von elegant-ausbalancierten, buttrig-nussigen Noten und einem feinen Duft von Honigmelone bet\u00f6rt. Die gut eingebundene und harmonische S\u00e4ure unterst\u00fctzt die spritzige, feine Perlage, die f\u00fcr ein charaktervolles Geschmackserlebnis sorgt.',
+      shortdesc:
+        'Samtig und vollmundig im Geschmack pr\u00e4sentiert sich der rebsortenreine Chardonnay Sekt.',
     },
-    postiton: {
-      left: 30,
-      top: 70,
-    },
+    left: 35,
+    top: 35,
   },
   {
     product: {
-      id: '3',
-      title: 'UKIO Japanese Blossom Gin',
-      image:
-        'https://cdn.shopify.com/s/files/1/1408/2732/products/TastePicsUkiyoGin_1024x1024@2x.jpg?v=1648812290',
-      description: 'Lorem ipsum dolor sit amet, nonumy eirmod tempor ut labore',
-      brand: 'UIKO',
-      price: 66,
+      ean: '4400066903530',
+      manufacturer_title: 'Rotkäppchen',
+      datatype: 'makaira-productgroup',
+      price: 4.5,
+      manufacturerid: null,
+      picture_url_main:
+        'https://www.ludwig-von-kapff.de/media/catalog/product/3/0/303530-rotkaeppchen-sekt-halbtr.png',
+      id: '303530',
+      title: 'Rotk\u00e4ppchen Sekt Tradition Halbtrocken',
+      url: '/rotkaeppchen-sekt-tradition-303530.html',
+      longdesc:
+        'Die ausgewogene Grundwein-Cuv\u00e9e verleiht diesem Rotk\u00e4ppchen Tradition Sekt Halbtrocken eine fruchtig-spritzige und zugleich temperamentvolle Note. Hellgelb, mit einem vollfruchtigen Bukett pr\u00e4sentiert sich der halbtrockene Sekt im Glas.\nAm Gaumen angenehm mit einer lieblich-fruchtigen Note. Eine temperamentvolle und lebendige Perlage begeistert und verleiht dem Sekt ein spritziges Finale.',
+      shortdesc:
+        'Die ausgewogene Grundwein-Cuv\u00e9e verleiht diesem Rotk\u00e4ppchen Tradition Sekt Halbtrocken eine fruchtig-spritzige und zugleich temperamentvolle Note.',
     },
-    postiton: {
-      left: 80,
-      top: 20,
+    left: 15,
+    top: 55,
+  },
+  {
+    product: {
+      ean: '4400066903530',
+      manufacturer_title: 'Bombay',
+      datatype: 'makaira-productgroup',
+      price: 4.5,
+      manufacturerid: null,
+      picture_url_main:
+        'https://www.berevita.com/pub/media/catalog/product/cache/image/1000x1320/e9c3970ab036de70892d86c6d221abfe/3/1/31018.jpg',
+      id: '303530',
+      title: 'Bombay Sapphire Dry Gin',
+      url: '/rotkaeppchen-sekt-tradition-303530.html',
+      longdesc:
+        'Ab convallis egestas dis hymenaeos libero ultricies libero vitae sem, provident aliquip, scelerisque accusamus facilisis imperdiet!',
+      shortdesc:
+        'Ab convallis egestas dis hymenaeos libero ultricies libero vitae sem, provident aliquip, scelerisque accusamus facilisis imperdiet!',
     },
+    left: 70,
+    top: 60,
   },
 ]
 export default [

@@ -56,19 +56,12 @@ export default function Variant() {
 
   const Component = componentEntry.component
   const props = variantEntry.props
-  const css = `
-    .site-wrapper {
-      max-width: none;
-      margin: 0;
-    } 
-  `
 
   return (
     <ConfigurationProvider>
       <TranslationProvider language={currentLanguage}>
         <BaseLayout>
           <Component {...props} />
-          <style>{css}</style>
         </BaseLayout>
 
         <LanguageSelect />
