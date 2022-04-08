@@ -12,10 +12,11 @@ const DeliveryInfoMobile = ({ countries }) => {
   }))
 
   return (
-    <div>
+    <div className="delivery-info-mobile-wrapper">
       <Dropdown
         id="DeliveryInfoMobileDropDown"
-        name="delivery-info-mbile"
+        name="delivery-info-mbile-dropdown"
+        className="delivery-info-mobile-dropdown"
         options={transformedCountries}
         onChange={(country) => setCurrentCountry(countries[country.index])}
       />

@@ -50,12 +50,34 @@
   font-size smaller
   color red
 
+// Mobile Styling
+
+.delivery-info-mobile-wrapper
+  padding 10px
+.delivery-info-mobile-dropdown
+  width 100%
+  margin-bottom 15px
+
 .delivery-info-mobile-card
   display flex
-  flex-direction: column
-  justify-content: space-between
+  flex-direction column
+  justify-content space-between
+  border 1px solid #c1c9d4
+  font-size x-large
 
 .delivery-info-mobile-card-entry
   display flex
+  padding 0 10px 0 10px
   span
-    width 50%
+    line-height 4rem
+
+.delivery-info-mobile-card-entry:nth-child(odd)
+  background-color #f9f9f9
+
+.delivery-info-mobile-card-entry span:nth-child(odd)
+  width 70%
+  border-right: 1px solid #c1c9d4
+
+.delivery-info-mobile-card-entry span:nth-child(even)
+  width 30%
+  text-align center
