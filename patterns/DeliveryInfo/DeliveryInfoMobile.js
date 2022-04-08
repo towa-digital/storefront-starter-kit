@@ -1,9 +1,10 @@
 import { useTranslation } from '../../utils'
 import { useState } from 'react'
 import Dropdown from '../core/Dropdown'
+import { sanitizePrice, shippingPriceKeys } from './utils'
 
 const DeliveryInfoMobile = ({ countries }) => {
-  const { language, t } = useTranslation()
+  const { t } = useTranslation()
   const [currentCountry, setCurrentCountry] = useState(countries[0])
   const transformedCountries = countries.map((country, index) => ({
     label: t(`COUNTRY_${country.code}`),
@@ -12,61 +13,55 @@ const DeliveryInfoMobile = ({ countries }) => {
   }))
 
   return (
-    <div className="delivery-info-mobile-wrapper">
+    <div className="delivery-info-mobile">
       <Dropdown
         id="DeliveryInfoMobileDropDown"
-        name="delivery-info-mbile-dropdown"
-        className="delivery-info-mobile-dropdown"
+        name="delivery-info-mobile-dropdown"
+        className="delivery-info-mobile__dropdown"
         options={transformedCountries}
         onChange={(country) => setCurrentCountry(countries[country.index])}
       />
-      <DeliveryInfoMobileCard
-        country={currentCountry}
-        language={language}
-        t={t}
-      />
+      <DeliveryInfoTableMobile country={currentCountry} />
     </div>
   )
 }
 
-const DeliveryInfoMobileCard = ({ country, t }) => {
+const DeliveryInfoTableMobile = ({ country }) => {
+  const { t } = useTranslation()
+
   return (
-    <div className="delivery-info-mobile-card">
-      <div className="delivery-info-mobile-card-entry">
-        <span>{t('DELIVERY_INFO_PACKAGE_UP_TO_40')}</span>
-        <span>{country.shipping.packageUpTo40}</span>
-      </div>
-      <div className="delivery-info-mobile-card-entry">
-        <span>{t('DELIVERY_INFO_PACKAGE_FROM_40')}</span>
-        <span>{country.shipping.packageFrom40}</span>
-      </div>
-      <div className="delivery-info-mobile-card-entry">
-        <span>{t('DELIVERY_INFO_BULKY_GOODS')}</span>
-        <span>{country.shipping.bulkyGoods}</span>
-      </div>
-      <div className="delivery-info-mobile-card-entry">
-        <span>{t('DELIVERY_INFO_BIKES')}</span>
-        <span>{country.shipping.bikes}</span>
-      </div>
-      <div className="delivery-info-mobile-card-entry">
-        <span>{t('DELIVERY_INFO_EXPRESS_PACKAGE')}</span>
-        <span>{country.shipping.expressPackage}</span>
-      </div>
-      <div className="delivery-info-mobile-card-entry">
-        <span>{t('DELIVERY_INFO_EXPRESS_BULKY_GOODS')}</span>
-        <span>{country.shipping.expressBulkyGoods}</span>
-      </div>
-      <div className="delivery-info-mobile-card-entry">
-        <span>{t('DELIVERY_INFO_EXPRESS_BIKES')}</span>
-        <span>{country.shipping.expressBikes}</span>
-      </div>
+    <div>
+      <table className="delivery-info-table  delivery-info-table--mobile">
+        <tbody className="delivery-info-table__body">
+          {country.shipping.map((price, i) => (
+            <tr
+              key={`${country.code}_${shippingPriceKeys[i]}`}
+              className="delivery-info-table__row"
+            >
+              <td className="delivery-info-table__column">
+                {t(`DELIVERY_INFO_${shippingPriceKeys[i]}`)}
+              </td>
+              <td className="delivery-info-table__column  delivery-info-table__price">
+                {sanitizePrice(price)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {!country.tax && (
+        <span className="delivery-info-table__tax-free">
+          {t('DELIVERY_INFO_TAX_FREE')}
+        </span>
+      )}
+
+      {country.nif && (
+        <span className="delivery-info-table__nif-required">
+          {t('DELIVERY_INFO_NIF_REQUIRED')}
+        </span>
+      )}
     </div>
   )
 }
 
-function DeliveryInfo({ countries }) {
-  return <DeliveryInfoMobile countries={countries} />
-}
-
-export default DeliveryInfo
-export { default as deliveryInfoVariants } from './variants.js'
+export default DeliveryInfoMobile

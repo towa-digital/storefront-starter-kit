@@ -1,83 +1,75 @@
 .delivery-info
   display block
 
+  &__table
+    display none
+
+  @media screen and (min-width: 768px)
+    &__table
+      display block
+
+    &__mobile
+      display none
+
 .delivery-info-table
-  width 100%
   margin-bottom 20px
-.delivery-info-table--bordered,
-.delivery-info-table--bordered td,
-.delivery-info-table--bordered th
-  border: 1px solid #ddd
-.delivery-info-table--bordered th
-  border-bottom-width: 2px
-
-.delivery-info-table__header th
-  font-weight bold
-  text-align left
-  vertical-align bottom
-
-.delivery-info-table__country
-  text-align left
-  width: 20%
-.delivery-info-table__price
-  text-align left
-  width 10%
-
-.delivery-info-table__price:empty:after
-  content "-"
-
-.delivery-info-table__price:not(:empty):before
-  content "€ "
-
-.delivery-info-table__description
-  font-size smaller
-  color #ddd
-
-.delivery-info-table th,
-.delivery-info-table td
-  padding 0.5rem
-
-.delivery-info-table__body tr:nth-child(odd) td
-  background-color #f9f9f9
-
-.delivery-info-table__tax-free
-  display block
-  font-size smaller
-  color #ee7f01
-
-.delivery-info-table__nif-required
-  display block
-  font-size smaller
-  color red
-
-// Mobile Styling
-
-.delivery-info-mobile-wrapper
-  padding 10px
-.delivery-info-mobile-dropdown
   width 100%
-  margin-bottom 15px
 
-.delivery-info-mobile-card
-  display flex
-  flex-direction column
-  justify-content space-between
-  border 1px solid #c1c9d4
-  font-size x-large
+  // modifiers
+  &--bordered,
+  &--bordered td,
+  &--bordered th
+    border: 1px solid #ddd
+  
+  &--bordered th
+    border-bottom-width: 2px
 
-.delivery-info-mobile-card-entry
-  display flex
-  padding 0 10px 0 10px
-  span
-    line-height 4rem
+  &--mobile
+    border 1px solid #c1c9d4
+    font-size x-large
 
-.delivery-info-mobile-card-entry:nth-child(odd)
-  background-color #f9f9f9
+    .delivery-info-table__column
+      padding: 10px
 
-.delivery-info-mobile-card-entry span:nth-child(odd)
-  width 70%
-  border-right: 1px solid #c1c9d4
+      &:nth-child(1)
+        width: 70%
 
-.delivery-info-mobile-card-entry span:nth-child(even)
-  width 30%
-  text-align center
+  // elements
+  &__header th
+    font-weight bold
+    text-align left
+    vertical-align bottom
+
+  &__row
+    &:nth-child(odd)
+      background-color #f9f9f9
+
+  &__column
+    padding: 0.5rem
+  
+    &:nth-child(1)
+      text-align left
+      width: 30%
+
+  &__price
+    &:empty:after
+      content "-"
+    &:not(:empty):before
+      content "€ "
+
+  &__tax-free
+    display block
+    font-size smaller
+    color #ee7f01
+
+  &__nif-required
+    display block
+    font-size smaller
+    color red
+
+.delivery-info-mobile
+  padding 10px
+
+  &__dropdown
+    width 100%
+    margin-bottom 15px

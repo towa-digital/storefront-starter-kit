@@ -1,61 +1,52 @@
 import { useTranslation } from '../../utils'
+import { sanitizePrice, shippingPriceKeys } from './utils'
 
 const DeliveryInfoTable = ({ countries }) => {
   const { t } = useTranslation()
-
-  const sanitizePrice = (price = null) => price?.toFixed(2).replace('.', ',')
 
   return (
     <table className="delivery-info-table  delivery-info-table--bordered">
       <thead className="delivery-info-table__header">
         <tr>
-          <th>{t('DELIVERY_INFO_COUNTRIES')}</th>
-          <th>{t('DELIVERY_INFO_PACKAGE_UP_TO_40')}</th>
-          <th>{t('DELIVERY_INFO_PACKAGE_FROM_40')}</th>
-          <th>{t('DELIVERY_INFO_BULKY_GOODS')}</th>
-          <th>{t('DELIVERY_INFO_BIKES')}</th>
-          <th>{t('DELIVERY_INFO_EXPRESS_PACKAGE')}</th>
-          <th>{t('DELIVERY_INFO_EXPRESS_BULKY_GOODS')}</th>
-          <th>{t('DELIVERY_INFO_EXPRESS_BIKES')}</th>
+          <th className="delivery-info-table__column">
+            {t('DELIVERY_INFO_COUNTRIES')}
+          </th>
+          {shippingPriceKeys.map((key) => (
+            <th key={key} className="delivery-info-table__column">
+              {t(`DELIVERY_INFO_${key}`)}
+            </th>
+          ))}
         </tr>
       </thead>
       <tbody className="delivery-info-table__body">
         {countries.map((country) => (
-          <tr key={country.code}>
-            <td className="delivery-info-table__country">
-              {t(`COUNTRY_${country.code}`)}
+          <tr key={country.code} className="delivery-info-table__row">
+            <td className="delivery-info-table__column">
+              <span className="delivery-info-table__country">
+                {t(`COUNTRY_${country.code}`)}
+              </span>
+
               {!country.tax && (
                 <span className="delivery-info-table__tax-free">
                   {t('DELIVERY_INFO_TAX_FREE')}
                 </span>
               )}
+
               {country.nif && (
                 <span className="delivery-info-table__nif-required">
                   {t('DELIVERY_INFO_NIF_REQUIRED')}
                 </span>
               )}
             </td>
-            <td className="delivery-info-table__price">
-              {sanitizePrice(country.shipping.packageUpTo40)}
-            </td>
-            <td className="delivery-info-table__price">
-              {sanitizePrice(country.shipping.packageFrom40)}
-            </td>
-            <td className="delivery-info-table__price">
-              {sanitizePrice(country.shipping.bulkyGoods)}
-            </td>
-            <td className="delivery-info-table__price">
-              {sanitizePrice(country.shipping.bikes)}
-            </td>
-            <td className="delivery-info-table__price">
-              {sanitizePrice(country.shipping.expressPackage)}
-            </td>
-            <td className="delivery-info-table__price">
-              {sanitizePrice(country.shipping.expressBulkyGoods)}
-            </td>
-            <td className="delivery-info-table__price">
-              {sanitizePrice(country.shipping.expressBikes)}
-            </td>
+
+            {country.shipping.map((price, i) => (
+              <td
+                key={`${country.code}_${shippingPriceKeys[i]}`}
+                className="delivery-info-table__column delivery-info-table__price"
+              >
+                {sanitizePrice(price)}
+              </td>
+            ))}
           </tr>
         ))}
       </tbody>
